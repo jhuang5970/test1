@@ -542,7 +542,6 @@
       .team-links {
         display: flex;
         gap: 0.5rem;
-        justify-content: center;
         margin-top: 1rem;
       }
 
@@ -553,7 +552,6 @@
         align-items: center;
         justify-content: center;
         background-color: var(--muted);
-        border-radius: var(--radius);
         color: var(--foreground);
         transition: all 0.2s;
       }
@@ -819,118 +817,221 @@
           </p>
         </div>
 
-        <div class="team-grid">
-          <div class="bg-black flex flex-col items-center !py-8 !px-12">
-            <div class="team-avatar">AA</div>
-            <h3>Ataes Aggarwal</h3>
-            <p class="team-role">President</p>
-            <div class="team-links">
-              <a href="mailto:alex@studentorg.edu" class="team-link">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div
+            class="bg-[#1e293b] flex items-center !py-4 !px-4 rounded-md gap-4"
+          >
+            <img
+              src="./Images/Ataes.png"
+              alt="Ataes Aggarwal"
+              class="w-32 rounded-lg aspect-[0.8] object-cover object-top"
+            />
+            <div class="flex flex-col justify-between h-full !pt-4">
+              <div>
+                <p class="text-sm !opacity-50">President</p>
+                <h2 class="text-xl">Ataes Aggarwal</h2>
+              </div>
+              <div class="team-links">
+                <a
+                  href="mailto:alex@studentorg.edu"
+                  class="team-link border rounded-md"
                 >
-                  <rect width="20" height="16" x="2" y="4" rx="2" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </svg>
-              </a>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
-
-          <div class="team-card">
-            <div class="team-avatar">SC</div>
-            <h3>Sarah Chen</h3>
-            <p class="team-role">Vice President</p>
-            <p class="team-bio">
-              Coordinating events and community initiatives
-            </p>
-            <div class="team-links">
-              <a href="mailto:sarah@studentorg.edu" class="team-link">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+          <div
+            class="bg-[#1e293b] flex items-center !py-4 !px-4 rounded-md gap-4"
+          >
+            <img
+              src="./Images/Jay.JPG"
+              alt="Jay Huang"
+              class="w-32 rounded-lg aspect-[0.8] object-cover object-top"
+            />
+            <div class="flex flex-col justify-between h-full !pt-4">
+              <div>
+                <p class="text-sm !opacity-50">Vice President</p>
+                <h2 class="text-xl">Vice President</h2>
+              </div>
+              <div class="team-links">
+                <a
+                  href="mailto:alex@studentorg.edu"
+                  class="team-link border rounded-md"
                 >
-                  <rect width="20" height="16" x="2" y="4" rx="2" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </svg>
-              </a>
-              <a href="#" class="team-link">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-                  />
-                  <rect width="4" height="12" x="2" y="9" />
-                  <circle cx="4" cy="4" r="2" />
-                </svg>
-              </a>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
-
-          <div class="">
-            <div class="team-avatar">MW</div>
-            <h3>Marcus Williams</h3>
-            <p class="team-role">Treasurer</p>
-            <p class="team-bio">Managing finances and sustainable growth</p>
-            <div class="team-links">
-              <a href="mailto:marcus@studentorg.edu" class="team-link">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+          <div
+            class="bg-[#1e293b] flex items-center !py-4 !px-4 rounded-md gap-4"
+          >
+            <img
+              src="./Images/Ankush.jfif"
+              alt="Ankush Dasari"
+              class="w-32 rounded-lg aspect-[0.8] object-cover object-top"
+            />
+            <div class="flex flex-col justify-between h-full !pt-4">
+              <div>
+                <p class="text-sm !opacity-50">Secretary</p>
+                <h2 class="text-xl">Ankush Dasari</h2>
+              </div>
+              <div class="team-links">
+                <a
+                  href="mailto:alex@studentorg.edu"
+                  class="team-link border rounded-md"
                 >
-                  <rect width="20" height="16" x="2" y="4" rx="2" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </svg>
-              </a>
-              <a href="#" class="team-link">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-[#1e293b] flex items-center !py-4 !px-4 rounded-md gap-4"
+          >
+            <img
+              src="./Images/Jhanvee.jfif"
+              alt="Jhanvee Patel"
+              class="w-32 rounded-lg aspect-[0.8] object-cover object-top"
+            />
+            <div class="flex flex-col justify-between h-full !pt-4">
+              <div>
+                <p class="text-sm !opacity-50">Treasurer</p>
+                <h2 class="text-xl">Jhanvee Patel</h2>
+              </div>
+              <div class="team-links">
+                <a
+                  href="mailto:alex@studentorg.edu"
+                  class="team-link border rounded-md"
                 >
-                  <path
-                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-                  />
-                  <rect width="4" height="12" x="2" y="9" />
-                  <circle cx="4" cy="4" r="2" />
-                </svg>
-              </a>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-[#1e293b] flex items-center !py-4 !px-4 rounded-md gap-4"
+          >
+            <img
+              src="./Images/Richard.png"
+              alt="Richard Lee"
+              class="w-32 rounded-lg aspect-[0.8] object-cover object-top"
+            />
+            <div class="flex flex-col justify-between h-full !pt-4">
+              <div>
+                <p class="text-sm !opacity-50">Senior Peer Advisor</p>
+                <h2 class="text-xl">Richard Lee</h2>
+              </div>
+              <div class="team-links">
+                <a
+                  href="mailto:alex@studentorg.edu"
+                  class="team-link border rounded-md"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-[#1e293b] flex items-center !py-4 !px-4 rounded-md gap-4"
+          >
+            <img
+              src="./Images/Dr. Dilcher.jfif"
+              alt="Dr. Dilcher"
+              class="w-32 rounded-lg aspect-[0.8] object-cover object-top"
+            />
+            <div class="flex flex-col justify-between h-full !pt-4">
+              <div>
+                <p class="text-sm !opacity-50">Faculty Advisor</p>
+                <h2 class="text-xl">Dr. Dilcher</h2>
+              </div>
+              <div class="team-links">
+                <a
+                  href="mailto:alex@studentorg.edu"
+                  class="team-link border rounded-md"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -947,7 +1048,7 @@
           </div>
 
           <div class="footer-col">
-            <h4>Connect</h4>
+            <h4 class="text-end">Connect</h4>
             <div class="social-links">
               <a
                 href="https://www.instagram.com/claims.wvu?igsh=Z2FvaGc1a2JiaWM5&utm_source=qr"
