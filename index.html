@@ -1,761 +1,1018 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Organization | Join Our Community</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --background: hsl(222, 47%, 11%);
+        --foreground: hsl(210, 40%, 98%);
+        --primary: hsl(221, 83%, 53%);
+        --primary-foreground: hsl(210, 40%, 98%);
+        --secondary: hsl(217, 33%, 17%);
+        --secondary-foreground: hsl(210, 40%, 98%);
+        --muted: hsl(217, 33%, 17%);
+        --muted-foreground: hsl(215, 20%, 65%);
+        --border: hsl(217, 33%, 17%);
+        --radius: 0.35rem;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background-color: var(--background);
+        color: var(--foreground);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      /* Enhanced Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5rem 1rem;
+        position: relative;
+        overflow: hidden;
+        background-color: var(--background);
+      }
+
+      /* Animated background elements */
+      .hero::before {
+        content: "";
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle,
+          rgba(66, 153, 225, 0.15) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        top: -200px;
+        right: -200px;
+        animation: float 20s ease-in-out infinite;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(66, 153, 225, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        bottom: -150px;
+        left: -150px;
+        animation: float 15s ease-in-out infinite reverse;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
         }
-
-        :root {
-            --background: hsl(222, 47%, 11%);
-            --foreground: hsl(210, 40%, 98%);
-            --primary: hsl(221, 83%, 53%);
-            --primary-foreground: hsl(210, 40%, 98%);
-            --secondary: hsl(217, 33%, 17%);
-            --secondary-foreground: hsl(210, 40%, 98%);
-            --muted: hsl(217, 33%, 17%);
-            --muted-foreground: hsl(215, 20%, 65%);
-            --border: hsl(217, 33%, 17%);
-            --radius: 0.5rem;
+        33% {
+          transform: translate(30px, -50px) scale(1.1);
         }
-
-        html {
-            scroll-behavior: smooth;
+        66% {
+          transform: translate(-20px, 30px) scale(0.9);
         }
+      }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--background);
-            color: var(--foreground);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden;
+      /* Floating particles */
+      .particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(66, 153, 225, 0.5);
+        border-radius: 50%;
+        animation: rise 15s infinite ease-in;
+      }
+
+      .particle:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .particle:nth-child(2) {
+        left: 20%;
+        animation-delay: 2s;
+      }
+      .particle:nth-child(3) {
+        left: 30%;
+        animation-delay: 4s;
+      }
+      .particle:nth-child(4) {
+        left: 40%;
+        animation-delay: 1s;
+      }
+      .particle:nth-child(5) {
+        left: 50%;
+        animation-delay: 3s;
+      }
+      .particle:nth-child(6) {
+        left: 60%;
+        animation-delay: 5s;
+      }
+      .particle:nth-child(7) {
+        left: 70%;
+        animation-delay: 2.5s;
+      }
+      .particle:nth-child(8) {
+        left: 80%;
+        animation-delay: 4.5s;
+      }
+      .particle:nth-child(9) {
+        left: 90%;
+        animation-delay: 1.5s;
+      }
+
+      @keyframes rise {
+        0% {
+          bottom: -10%;
+          opacity: 0;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
+        10% {
+          opacity: 1;
         }
-
-        /* Enhanced Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 5rem 1rem;
-            position: relative;
-            overflow: hidden;
-            background-color: var(--background);
+        90% {
+          opacity: 1;
         }
-
-        /* Animated background elements */
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(66, 153, 225, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -200px;
-            right: -200px;
-            animation: float 20s ease-in-out infinite;
+        100% {
+          bottom: 110%;
+          opacity: 0;
         }
+      }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(66, 153, 225, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            bottom: -150px;
-            left: -150px;
-            animation: float 15s ease-in-out infinite reverse;
+      .hero-content {
+        text-align: center;
+        max-width: 56rem;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
         }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(30px, -50px) scale(1.1);
-            }
-            66% {
-                transform: translate(-20px, 30px) scale(0.9);
-            }
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
 
-        /* Floating particles */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-        }
+      .hero h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.02em;
+        color: var(--foreground);
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        animation: fadeInUp 1s ease-out 0.2s both;
+      }
 
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(66, 153, 225, 0.5);
-            border-radius: 50%;
-            animation: rise 15s infinite ease-in;
-        }
+      .hero-subtitle {
+        font-size: clamp(1.125rem, 3vw, 1.5rem);
+        color: var(--muted-foreground);
+        margin-bottom: 2rem;
+        max-width: 42rem;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+        animation: fadeInUp 1s ease-out 0.4s both;
+      }
 
-        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 20%; animation-delay: 2s; }
-        .particle:nth-child(3) { left: 30%; animation-delay: 4s; }
-        .particle:nth-child(4) { left: 40%; animation-delay: 1s; }
-        .particle:nth-child(5) { left: 50%; animation-delay: 3s; }
-        .particle:nth-child(6) { left: 60%; animation-delay: 5s; }
-        .particle:nth-child(7) { left: 70%; animation-delay: 2.5s; }
-        .particle:nth-child(8) { left: 80%; animation-delay: 4.5s; }
-        .particle:nth-child(9) { left: 90%; animation-delay: 1.5s; }
+      .signup-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        max-width: 28rem;
+        margin: 2rem auto;
+        animation: fadeInUp 1s ease-out 0.6s both;
+      }
 
-        @keyframes rise {
-            0% {
-                bottom: -10%;
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                bottom: 110%;
-                opacity: 0;
-            }
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 56rem;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-            color: var(--foreground);
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.125rem, 3vw, 1.5rem);
-            color: var(--muted-foreground);
-            margin-bottom: 2rem;
-            max-width: 42rem;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
+      @media (min-width: 640px) {
         .signup-form {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            max-width: 28rem;
-            margin: 2rem auto;
-            animation: fadeInUp 1s ease-out 0.6s both;
+          flex-direction: row;
         }
+      }
 
-        @media (min-width: 640px) {
-            .signup-form {
-                flex-direction: row;
-            }
-        }
+      .email-input {
+        flex: 1;
+        height: 3.5rem;
+        padding: 0 1.5rem;
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        font-size: 1rem;
+        background-color: var(--secondary);
+        color: var(--foreground);
+        transition: all 0.3s ease;
+      }
 
-        .email-input {
-            flex: 1;
-            height: 3.5rem;
-            padding: 0 1.5rem;
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            font-size: 1rem;
-            background-color: var(--secondary);
-            color: var(--foreground);
-            transition: all 0.3s ease;
-        }
+      .email-input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        transform: translateY(-2px);
+      }
 
-        .email-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            transform: translateY(-2px);
-        }
+      .submit-btn {
+        height: 3.5rem;
+        padding: 0 2.5rem;
+        background-color: var(--primary);
+        color: var(--primary-foreground);
+        border: none;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(66, 153, 225, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
 
-        .submit-btn {
-            height: 3.5rem;
-            padding: 0 2.5rem;
-            background-color: var(--primary);
-            color: var(--primary-foreground);
-            border: none;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(66, 153, 225, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
+      .submit-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
 
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
+      .submit-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(66, 153, 225, 0.4);
+        background-color: hsl(221, 83%, 58%);
+      }
 
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(66, 153, 225, 0.4);
-            background-color: hsl(221, 83%, 58%);
-        }
+      .submit-btn:hover::before {
+        left: 100%;
+      }
 
-        .submit-btn:hover::before {
-            left: 100%;
-        }
+      .submit-btn:active {
+        transform: translateY(-1px);
+      }
 
-        .submit-btn:active {
-            transform: translateY(-1px);
-        }
+      .member-count {
+        font-size: 0.875rem;
+        color: var(--muted-foreground);
+        margin-top: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        animation: fadeInUp 1s ease-out 0.8s both;
+      }
 
-        .member-count {
-            font-size: 0.875rem;
-            color: var(--muted-foreground);
-            margin-top: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            animation: fadeInUp 1s ease-out 0.8s both;
-        }
+      .member-count::before {
+        content: "✨";
+        animation: pulse 2s ease-in-out infinite;
+      }
 
-        .member-count::before {
-            content: '✨';
-            animation: pulse 2s ease-in-out infinite;
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
         }
+        50% {
+          transform: scale(1.2);
+          opacity: 0.8;
+        }
+      }
 
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 0.8;
-            }
-        }
+      /* Stats badges */
+      .stats-container {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 3rem;
+        animation: fadeInUp 1s ease-out 1s both;
+      }
 
-        /* Stats badges */
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-            animation: fadeInUp 1s ease-out 1s both;
-        }
+      .stat-badge {
+        background: var(--secondary);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.5rem 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
 
-        .stat-badge {
-            background: var(--secondary);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
+      .stat-badge:hover {
+        transform: translateY(-5px);
+        background: hsl(217, 33%, 20%);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
 
-        .stat-badge:hover {
-            transform: translateY(-5px);
-            background: hsl(217, 33%, 20%);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
+      .stat-number {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--foreground);
+        display: block;
+        margin-bottom: 0.25rem;
+      }
 
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--foreground);
-            display: block;
-            margin-bottom: 0.25rem;
-        }
+      .stat-label {
+        font-size: 0.875rem;
+        color: var(--muted-foreground);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
 
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--muted-foreground);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+      /* Scroll indicator */
+      .scroll-indicator {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 2s infinite;
+        cursor: pointer;
+        z-index: 2;
+      }
 
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            cursor: pointer;
-            z-index: 2;
-        }
+      .scroll-indicator svg {
+        width: 24px;
+        height: 24px;
+        color: var(--muted-foreground);
+      }
 
-        .scroll-indicator svg {
-            width: 24px;
-            height: 24px;
-            color: var(--muted-foreground);
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateX(-50%) translateY(0);
         }
+        40% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+        60% {
+          transform: translateX(-50%) translateY(-5px);
+        }
+      }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
-        }
+      /* About Section */
+      .about-section {
+        padding: 6rem 1rem;
+        background-color: hsl(217, 33%, 14%);
+      }
 
-        /* About Section */
-        .about-section {
-            padding: 6rem 1rem;
-            background-color: hsl(217, 33%, 14%);
-        }
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
+      .section-header h2 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+      }
 
-        .section-header h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
+      .section-subtitle {
+        font-size: 1.25rem;
+        color: var(--muted-foreground);
+        max-width: 42rem;
+        margin: 0 auto;
+      }
 
-        .section-subtitle {
-            font-size: 1.25rem;
-            color: var(--muted-foreground);
-            max-width: 42rem;
-            margin: 0 auto;
-        }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+      }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
+      .feature-card {
+        padding: 2rem;
+        text-align: center;
+      }
 
-        .feature-card {
-            padding: 2rem;
-            text-align: center;
-        }
+      .feature-icon {
+        width: 4rem;
+        height: 4rem;
+        border-radius: var(--radius);
+        background-color: hsla(221, 83%, 53%, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        color: var(--primary);
+      }
 
-        .feature-icon {
-            width: 4rem;
-            height: 4rem;
-            border-radius: var(--radius);
-            background-color: hsla(221, 83%, 53%, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            color: var(--primary);
-        }
+      .feature-card h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
 
-        .feature-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
+      .feature-card p {
+        color: var(--muted-foreground);
+      }
 
-        .feature-card p {
-            color: var(--muted-foreground);
-        }
+      .mission-card {
+        max-width: 48rem;
+        margin: 0 auto;
+        padding: 3rem;
+        background-color: var(--secondary);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+      }
 
-        .mission-card {
-            max-width: 48rem;
-            margin: 0 auto;
-            padding: 3rem;
-            background-color: var(--secondary);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-        }
+      .mission-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
 
-        .mission-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
+      .mission-card p {
+        color: var(--muted-foreground);
+        line-height: 1.7;
+      }
 
-        .mission-card p {
-            color: var(--muted-foreground);
-            line-height: 1.7;
-        }
+      /* Team Section */
+      .team-section {
+        padding: 6rem 1rem;
+        background-color: var(--background);
+      }
 
-        /* Team Section */
-        .team-section {
-            padding: 6rem 1rem;
-            background-color: var(--background);
-        }
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+      }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-        }
+      .team-card {
+        background-color: var(--secondary);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        text-align: center;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
 
-        .team-card {
-            background-color: var(--secondary);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+      .team-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
 
-        .team-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
+      .team-avatar {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        background-color: hsla(221, 83%, 53%, 0.2);
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
 
-        .team-avatar {
-            width: 5rem;
-            height: 5rem;
-            border-radius: 50%;
-            background-color: hsla(221, 83%, 53%, 0.2);
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
+      .team-card h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        color: var(--foreground);
+      }
 
-        .team-card h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-            color: var(--foreground);
-        }
+      .team-role {
+        color: var(--primary);
+        font-weight: 500;
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
+      }
 
-        .team-role {
-            color: var(--primary);
-            font-weight: 500;
-            font-size: 0.875rem;
-            margin-bottom: 0.5rem;
-        }
+      .team-bio {
+        color: var(--muted-foreground);
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+      }
 
-        .team-bio {
-            color: var(--muted-foreground);
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-        }
+      .team-links {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-top: 1rem;
+      }
 
-        .team-links {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            margin-top: 1rem;
-        }
+      .team-link {
+        width: 2.25rem;
+        height: 2.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--muted);
+        border-radius: var(--radius);
+        color: var(--foreground);
+        transition: all 0.2s;
+      }
 
-        .team-link {
-            width: 2.25rem;
-            height: 2.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--muted);
-            border-radius: var(--radius);
-            color: var(--foreground);
-            transition: all 0.2s;
-        }
+      .team-link:hover {
+        background-color: var(--primary);
+        color: var(--primary-foreground);
+      }
 
-        .team-link:hover {
-            background-color: var(--primary);
-            color: var(--primary-foreground);
-        }
+      /* Footer */
+      .footer {
+        border-top: 1px solid var(--border);
+        padding: 3rem 1rem;
+        background-color: hsl(217, 33%, 14%);
+      }
 
-        /* Footer */
-        .footer {
-            border-top: 1px solid var(--border);
-            padding: 3rem 1rem;
-            background-color: hsl(217, 33%, 14%);
-        }
+      .footer-grid {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
+      .footer-col h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--foreground);
+      }
 
-        .footer-col h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--foreground);
-        }
+      .footer-col h4 {
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--foreground);
+      }
 
-        .footer-col h4 {
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--foreground);
-        }
+      .footer-col p {
+        font-size: 0.875rem;
+        color: var(--muted-foreground);
+      }
 
-        .footer-col p {
-            font-size: 0.875rem;
-            color: var(--muted-foreground);
-        }
+      .footer-links {
+        list-style: none;
+      }
 
-        .footer-links {
-            list-style: none;
-        }
+      .footer-links li {
+        margin-bottom: 0.5rem;
+      }
 
-        .footer-links li {
-            margin-bottom: 0.5rem;
-        }
+      .footer-links a {
+        color: var(--muted-foreground);
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.2s;
+      }
 
-        .footer-links a {
-            color: var(--muted-foreground);
-            text-decoration: none;
-            font-size: 0.875rem;
-            transition: color 0.2s;
-        }
+      .footer-links a:hover {
+        color: var(--primary);
+      }
 
-        .footer-links a:hover {
-            color: var(--primary);
-        }
+      .social-links {
+        display: flex;
+        gap: 0.75rem;
+      }
 
-        .social-links {
-            display: flex;
-            gap: 0.75rem;
-        }
+      .social-link {
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--secondary);
+        border-radius: var(--radius);
+        color: var(--foreground);
+        transition: all 0.2s;
+      }
 
-        .social-link {
-            width: 2.5rem;
-            height: 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--secondary);
-            border-radius: var(--radius);
-            color: var(--foreground);
-            transition: all 0.2s;
-        }
+      .social-link:hover {
+        background-color: var(--primary);
+        color: var(--primary-foreground);
+      }
 
-        .social-link:hover {
-            background-color: var(--primary);
-            color: var(--primary-foreground);
-        }
+      .footer-bottom {
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+        text-align: center;
+      }
 
-        .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-
-        .footer-bottom p {
-            font-size: 0.875rem;
-            color: var(--muted-foreground);
-        }
+      .footer-bottom p {
+        font-size: 0.875rem;
+        color: var(--muted-foreground);
+      }
     </style>
-</head>
-<body>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
     <!-- Hero Section -->
     <section class="hero">
-        <div class="particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
-        
-        <div class="container">
-            <div class="hero-content">
-                <h1>Join Our Student Community</h1>
-                <p class="hero-subtitle">Connect with like-minded students, attend exclusive events, and build meaningful relationships that last a lifetime</p>
-                
-                <form class="signup-form" onsubmit="handleSubmit(event)">
-                    <input 
-                        type="email" 
-                        id="email"
-                        placeholder="Enter your email" 
-                        required
-                        class="email-input"
-                    >
-                    <button type="submit" class="submit-btn">Get Started</button>
-                </form>
-                
-                <p class="member-count">Join 500+ students already part of our community</p>
+      <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
 
-                <div class="stats-container">
-                    <div class="stat-badge">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Events</span>
-                    </div>
-                    <div class="stat-badge">
-                        <span class="stat-number">500+</span>
-                        <span class="stat-label">Members</span>
-                    </div>
-                    <div class="stat-badge">
-                        <span class="stat-number">20+</span>
-                        <span class="stat-label">Partners</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>Join Our Student Community</h1>
+          <p class="hero-subtitle">
+            Connect with like-minded students, attend exclusive events, and
+            build meaningful relationships that last a lifetime
+          </p>
 
-        <div class="scroll-indicator" onclick="document.querySelector('.about-section').scrollIntoView({ behavior: 'smooth' })">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 5v14M19 12l-7 7-7-7"/>
-            </svg>
+          <form class="signup-form">
+            <button type="submit" class="submit-btn" class="hidden">
+              Join our Mailing List
+            </button>
+          </form>
+
+          <p class="member-count">
+            Join 500+ students already part of our community
+          </p>
         </div>
+      </div>
+
+      <div
+        class="scroll-indicator"
+        onclick="document.querySelector('.about-section').scrollIntoView({ behavior: 'smooth' })"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 5v14M19 12l-7 7-7-7" />
+        </svg>
+      </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>About Our Organization</h2>
-                <p class="section-subtitle">We're a student-led organization dedicated to creating meaningful connections</p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <h3>Community</h3>
-                    <p>Join a diverse group of students who share your interests and passions</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                    </div>
-                    <h3>Growth</h3>
-                    <p>Develop leadership skills and gain valuable experience for your future</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-                    </div>
-                    <h3>Impact</h3>
-                    <p>Make a difference in your campus and local community through our initiatives</p>
-                </div>
-            </div>
-
-            <div class="mission-card">
-                <h3>Our Mission</h3>
-                <p>We strive to foster a vibrant and inclusive community where students can explore their interests, develop their skills, and create lasting memories. Through engaging events, workshops, and social activities, we provide opportunities for personal growth and meaningful connections.</p>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2>About Our Organization</h2>
+          <p class="section-subtitle">
+            We're a student-led organization dedicated to creating meaningful
+            connections
+          </p>
         </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <h3>Community</h3>
+            <p>
+              Join a diverse group of students who share your interests and
+              passions
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="6" />
+                <circle cx="12" cy="12" r="2" />
+              </svg>
+            </div>
+            <h3>Growth</h3>
+            <p>
+              Develop leadership skills and gain valuable experience for your
+              future
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+                />
+              </svg>
+            </div>
+            <h3>Impact</h3>
+            <p>
+              Make a difference in your campus and local community through our
+              initiatives
+            </p>
+          </div>
+        </div>
+
+        <div class="mission-card">
+          <h3>Our Mission</h3>
+          <p>
+            We strive to foster a vibrant and inclusive community where students
+            can explore their interests, develop their skills, and create
+            lasting memories. Through engaging events, workshops, and social
+            activities, we provide opportunities for personal growth and
+            meaningful connections.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- Team Section -->
     <section id="team" class="team-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Meet Our Team</h2>
-                <p class="section-subtitle">Dedicated leaders working to build our community</p>
+      <div class="container">
+        <div class="section-header">
+          <h2>Meet Our Team</h2>
+          <p class="section-subtitle">
+            Dedicated leaders working to build our community
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar">AJ</div>
+            <h3>Alex Johnson</h3>
+            <p class="team-role">President</p>
+            <p class="team-bio">
+              Leading our organization with passion and vision
+            </p>
+            <div class="team-links">
+              <a href="mailto:alex@studentorg.edu" class="team-link">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </a>
+              <a href="#" class="team-link">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
             </div>
+          </div>
 
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-avatar">AJ</div>
-                    <h3>Alex Johnson</h3>
-                    <p class="team-role">President</p>
-                    <p class="team-bio">Leading our organization with passion and vision</p>
-                    <div class="team-links">
-                        <a href="mailto:alex@studentorg.edu" class="team-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                        </a>
-                        <a href="#" class="team-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                        </a>
-                    </div>
-                </div>
+          <div class="team-card">
+            <div class="team-avatar">SC</div>
+            <h3>Sarah Chen</h3>
+            <p class="team-role">Vice President</p>
+            <p class="team-bio">
+              Coordinating events and community initiatives
+            </p>
+            <div class="team-links">
+              <a href="mailto:sarah@studentorg.edu" class="team-link">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </a>
+              <a href="#" class="team-link">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+            </div>
+          </div>
 
-                <div class="team-card">
-                    <div class="team-avatar">SC</div>
-                    <h3>Sarah Chen</h3>
-                    <p class="team-role">Vice President</p>
-                    <p class="team-bio">Coordinating events and community initiatives</p>
-                    <div class="team-links">
-                        <a href="mailto:sarah@studentorg.edu" class="team-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                        </a>
-                        <a href="#" class="team-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                        </a>
-                    </div>
-                </div>
+          <div class="team-card">
+            <div class="team-avatar">MW</div>
+            <h3>Marcus Williams</h3>
+            <p class="team-role">Treasurer</p>
+            <p class="team-bio">Managing finances and sustainable growth</p>
+            <div class="team-links">
+              <a href="mailto:marcus@studentorg.edu" class="team-link">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </a>
+              <a href="#" class="team-link">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                <div class="team-card">
-                    <div class="team-avatar">MW</div>
-                    <h3>Marcus Williams</h3>
-                    <p class="team-role">Treasurer</p>
-                    <p class="team-bio">Managing finances and sustainable growth</p>
-                    <div class="team-links">
-                        <a href="mailto:marcus@studentorg.edu" class="team-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                        </a>
-                        <a href="#" class="team-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                        </a>
-                    </div>
-                </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3>Student Organization</h3>
+            <p>Building community, one student at a time.</p>
+          </div>
 
-                <div class="team-card">
-                    <div class="team-avatar">ER</div>
-                    <h3>Emily Rodriguez</h3>
-                    <p class="team-role">Secretary</p>
-                    <p class="team-bio">Keeping us organized and connected</p>
-                    <div class="team-links">
-                        <a href="mailto:emily@studentorg.edu" class="team-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <div class="social-links">
+              <a
+                href="https://www.instagram.com/claims.wvu?igsh=Z2FvaGc1a2JiaWM5&utm_source=qr"
+                class="social-link"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+              <a href="mailto:wvuai@gmail.com" class="social-link">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; <span id="year"></span> Student Organization. All rights
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
