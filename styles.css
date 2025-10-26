@@ -314,6 +314,14 @@ body{
   border-radius:10px;
   box-shadow: var(--shadow);
 }
+/* Role under the name (HTML + CSS version) */
+.team-name { margin: 0; color: #08304b; font-size: 1.05rem; }
+.team-role {
+  font-weight: 600;
+  color: var(--blue-600);
+  font-size: 0.9rem;
+  margin-top: 0.18rem;
+}
 /* Make avatars consistent & optimized in layout */
 .avatar{
   width: 96px;             /* display size */
