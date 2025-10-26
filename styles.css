@@ -327,7 +327,7 @@ body{
   width: 96px;             /* display size */
   height: 96px;            /* display size */
   object-fit: cover;       /* center-crop to fill the box */
-  object-position: center;
+  object-position: top;
   border-radius: 10px;     /* set to 50% for circles */
   flex-shrink: 0;
   display: block;
