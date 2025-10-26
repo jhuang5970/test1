@@ -296,6 +296,32 @@ body{
   white-space:nowrap;border:0;margin:-1px;padding:0;
 }
 
+/* Exec avatars: fixed display size, centered & cropped */
+.team-card { align-items:flex-start; } /* ensure layout */
+.avatar{
+  width: 96px;              /* displayed width */
+  height: 96px;             /* displayed height (keeps square) */
+  object-fit: cover;        /* crop & fill the box */
+  object-position: center;  /* center the crop */
+  border-radius: 10px;      /* change to 50% for circular avatars */
+  flex-shrink: 0;           /* don't shrink the image */
+  display: block;
+  border: 1px solid rgba(10,20,40,0.06);
+  background: #f6fbff;      /* placeholder background while loading */
+}
+
+/* make avatars a bit smaller on very small screens */
+@media (max-width:520px){
+  .avatar{
+    width:72px;
+    height:72px;
+    border-radius:8px;
+  }
+}
+
+/* If you prefer round avatars, uncomment this line */
+/* .avatar { border-radius: 50%; } */
+
 /* Responsive */
 @media (max-width:980px){
   .hero-grid, .about-grid{grid-template-columns:1fr}
