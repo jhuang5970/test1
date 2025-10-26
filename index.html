@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Clinical Informatics and AI in Medicine — student organization promoting clinical informatics, AI education, and collaboration." />
+  <title>Clinical Informatics & AI in Medicine</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Clinical Informatics and AI in Medicine homepage">
+        <svg class="logo" width="40" height="40" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#0077ff"/>
+              <stop offset="1" stop-color="#00b0ff"/>
+            </linearGradient>
+          </defs>
+          <rect x="2" y="2" width="20" height="20" rx="4" fill="url(#g)"></rect>
+          <path d="M7 12h10M7 8h10M7 16h6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-text">Clinical Informatics & AI</span>
+      </a>
+
+      <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+
+      <nav id="primary-navigation" class="primary-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#join">Join</a></li>
+        </ul>
+        <a class="nav-cta" href="#join">Get Involved</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Clinical Informatics and AI in Medicine
+          </h1>
+          <p class="hero-sub">
+            Bringing students together to explore the intersection of medicine, data, and responsible AI — through talks, projects, and collaboration.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#join">Join Our Mailing List</a>
+            <a class="btn btn-outline" href="#about">Learn More</a>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-hidden="true">
+          <div class="stat">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Members</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Talks & Workshops</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">Ongoing</div>
+            <div class="stat-label">Projects</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about section container">
+      <div class="about-grid">
+        <div>
+          <h2>About Us</h2>
+          <p>
+            We're a student organization dedicated to educating and connecting learners interested in clinical informatics, biomedical data science, and AI applications in healthcare.
+            We host workshops, speaker series, project teams, and study groups — all with a focus on responsible use of data and reproducible methods.
+          </p>
+
+          <h3>Our Mission</h3>
+          <p>
+            To foster a collaborative community where students gain practical skills, learn the ethics and limitations of AI in medicine, and build projects that make clinical research and care safer and more effective.
+          </p>
+
+          <a class="btn btn-secondary" href="#join">Sign Up — It's Free</a>
+        </div>
+
+        <div class="values">
+          <div class="value">
+            <h4>Education</h4>
+            <p>Hands-on workshops and study groups to learn tools and methods.</p>
+          </div>
+          <div class="value">
+            <h4>Collaboration</h4>
+            <p>Multidisciplinary projects that pair students across medicine, CS, and data science.</p>
+          </div>
+          <div class="value">
+            <h4>Ethics</h4>
+            <p>Critical discussions on bias, privacy, and clinical impact.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="events" class="section container">
+      <h2>Upcoming Events</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Intro to Clinical Data & EHRs</h3>
+          <p class="muted">Nov 12 • Workshop</p>
+          <p>Hands-on session exploring electronic health record structure and common clinical data standards.</p>
+          <a class="card-link" href="#join">Register</a>
+        </article>
+
+        <article class="card">
+          <h3>AI for Medical Imaging</h3>
+          <p class="muted">Nov 26 • Speaker</p>
+          <p>Guest speaker discusses deep learning applications and pitfalls in medical imaging.</p>
+          <a class="card-link" href="#join">Register</a>
+        </article>
+
+        <article class="card">
+          <h3>Project Showcase</h3>
+          <p class="muted">Dec 10 • Demo Night</p>
+          <p>Student teams present their projects, get feedback, and find collaborators.</p>
+          <a class="card-link" href="#join">Learn More</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="join" class="section join-section">
+      <div class="container join-inner">
+        <div>
+          <h2>Get Involved</h2>
+          <p>Want to join meetings, receive announcements, or start a project with us? Sign up for our mailing list or reach out to our officers.</p>
+        </div>
+        <form class="join-form" action="mailto:replace-with-your-org-email@example.com" method="post" enctype="text/plain">
+          <label class="sr-only" for="name">Name</label>
+          <input id="name" name="Name" type="text" placeholder="Your name" required>
+          <label class="sr-only" for="email">Email</label>
+          <input id="email" name="Email" type="email" placeholder="you@university.edu" required>
+          <button class="btn btn-primary" type="submit">Sign Up</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <small>© <span id="year"></span> Clinical Informatics & AI in Medicine — Student Organization</small>
+      </div>
+      <div class="footer-right">
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="mailto:replace-with-your-org-email@example.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header nav toggle
+    (function() {
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('primary-navigation');
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
+        toggle.setAttribute('aria-expanded', !expanded);
+        nav.classList.toggle('open');
+      });
+
+      // Close nav on link click (mobile)
+      document.querySelectorAll('.primary-nav a').forEach(a => {
+        a.addEventListener('click', () => {
+          if (nav.classList.contains('open')) {
+            nav.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+
+      // Fill year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
